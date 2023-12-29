@@ -12,10 +12,13 @@ import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import SimpleMDE from "react-simplemde-editor";
 import { z } from 'zod';
+import delay from 'delay';
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
-const NewIssuePage = () => {
+const NewIssuePage = async () => {
+
+    
 
     const router = useRouter();
     
@@ -33,6 +36,8 @@ const NewIssuePage = () => {
       }
 
       const [error, setError] = useState('');
+
+      await delay(2000);
 
   return (
     <Box
