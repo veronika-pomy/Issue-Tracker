@@ -32,7 +32,6 @@ const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
             <Card className='prose'>
                 <ReactMarkdown>{issue.description}</ReactMarkdown>
             </Card>
-            
         </Box>
     )
 }

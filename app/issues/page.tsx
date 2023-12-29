@@ -1,5 +1,4 @@
 import { Box, Table } from '@radix-ui/themes';
-import Link from 'next/link';
 import prisma from "@/prisma/client";
 import StatusBadge from '../components/StatusBadge';
 import delay from 'delay';
