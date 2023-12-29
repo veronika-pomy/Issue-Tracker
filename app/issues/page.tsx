@@ -4,6 +4,7 @@ import prisma from "@/prisma/client";
 import StatusBadge from '../components/StatusBadge';
 import delay from 'delay';
 import IssueBar from '../components/IssueBar';
+import CustomLink from '../components/Link';
 
 const IssuesPage = async () => {
 
@@ -26,9 +27,9 @@ const IssuesPage = async () => {
           {issues.map((issue) => (
             <Table.Row key={issue.id}>
               <Table.RowHeaderCell>
-                <Link href={`issues/${issue.id}`}>
+                <CustomLink href={`issues/${issue.id}`}>
                   {issue.title}
-                </Link>
+                </CustomLink>
                 <Box className='block md:hidden'>
                   <StatusBadge status={issue.status}/>
                 </Box>

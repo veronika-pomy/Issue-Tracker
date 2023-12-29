@@ -25,7 +25,7 @@ const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
             <Heading as='h2'>{issue.title}</Heading>
             <Flex gap='4'>
                 <Text as='p'>
-                    <StatusBadge status={issue.status}/>
+                    <StatusBadge status={issue.status} />
                 </Text>
                 <Text as='p'>{issue.createdAt.toDateString()}</Text>
             </Flex>
