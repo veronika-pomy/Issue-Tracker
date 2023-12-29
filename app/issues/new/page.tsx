@@ -1,17 +1,17 @@
 'use client';
-import React, { useState } from 'react';
-import { Button, TextField, Callout, Text } from '@radix-ui/themes';
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
-import { useForm, Controller } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
-import axios from 'axios';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { createIssueSchema } from '@/app/validationSchemas';
-import { z } from 'zod';
+
 import ErrorMessage from '@/app/components/ErrorMessage';
-import errorsToRecord from '@hookform/resolvers/io-ts/dist/errorsToRecord.js';
 import Spinner from '@/app/components/Spinner';
+import { createIssueSchema } from '@/app/validationSchemas';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Box, Button, Callout, TextField } from '@radix-ui/themes';
+import axios from 'axios';
+import "easymde/dist/easymde.min.css";
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import SimpleMDE from "react-simplemde-editor";
+import { z } from 'zod';
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
@@ -35,7 +35,7 @@ const NewIssuePage = () => {
       const [error, setError] = useState('');
 
   return (
-    <div
+    <Box
         className='max-w-xl'
     >
         {error && 
@@ -61,7 +61,7 @@ const NewIssuePage = () => {
             <ErrorMessage children={errors.description?.message} />
             <Button disabled={isSubmitting}>Submit {isSubmitting && <Spinner/>}</Button>
         </form>
-    </div>
+    </Box>
   )
 }
 

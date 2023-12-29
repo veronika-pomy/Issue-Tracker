@@ -1,7 +1,7 @@
-'use client'
-import React from 'react';
-import Link from 'next/link';
+'use client';
+
 import classnames from 'classnames';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
 
