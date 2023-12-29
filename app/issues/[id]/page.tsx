@@ -1,14 +1,10 @@
-import { Box, Text, Heading, Flex, Card } from '@radix-ui/themes';
-import { notFound } from 'next/navigation';
-import React from 'react';
 import prisma from '@/prisma/client';
-import StatusBadge from '../../components/StatusBadge';
-import delay from 'delay';
+import { Box, Card, Flex, Heading, Text } from '@radix-ui/themes';
+import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
+import StatusBadge from '../../components/StatusBadge';
 
 const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
-
-    await delay(2000);
 
     if(isNaN(parseInt(params.id))) notFound();
 
