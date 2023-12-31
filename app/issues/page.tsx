@@ -42,4 +42,7 @@ const IssuesPage = async () => {
   )
 }
 
+// opt-out of static server rendering for issues route
+export const dynamic = 'force-dynamic';
+
 export default IssuesPage;
