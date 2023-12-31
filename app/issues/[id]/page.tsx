@@ -1,8 +1,10 @@
 import prisma from '@/prisma/client';
-import { Box, Grid } from '@radix-ui/themes';
+import { Box, Flex, Grid } from '@radix-ui/themes';
 import { notFound } from 'next/navigation';
 import IssueDetails from './IssueDetails';
 import IssueEditBtn from './IssueEditBtn';
+import IssueDeleteBtn from './IssueDeleteBtn';
+// Update status Btn and API
 
 const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
 
@@ -17,12 +19,15 @@ const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
     if(!issue) notFound();
     
     return (
-        <Grid columns={{ initial: "1", md: "2" }} gap="5">
-                <Box className='space-y-4'>
+        <Grid columns={{ initial: '1', md: '5' }} gap='5'>
+                <Box className='space-y-4 md:col-span-4 mr-6'>
                     <IssueDetails issue={issue} />
                 </Box>
-                <Box>
-                    <IssueEditBtn issueID={issue.id} /> 
+                <Box mt='4'>
+                    <Flex direction={{ md: 'column' }} gap="4" align='center'>
+                        <IssueEditBtn issueID={issue.id} /> 
+                        <IssueDeleteBtn issueID={issue.id} /> 
+                    </Flex>
                 </Box>
                 
         </Grid>

@@ -4,17 +4,16 @@ import { HiPencil } from 'react-icons/hi2';
 
 const IssueEditBtn = ({ issueID }: { issueID: number }) => {
   return (
-    <Button>
-        
-        <Link
-            href={`/issues/${issueID}/edit`}
-        >
-            <Flex  align='center' gap='1'>
-                <HiPencil />
-                <Text>Edit</Text>
-            </Flex>
-        </Link>
-    </Button>
+    <Link
+    href={`/issues/${issueID}/edit`}
+    >
+      <Button className='lg:w-40'>
+        <Flex  align='center' gap='1'>
+          <HiPencil />
+          <Text>Edit</Text>
+        </Flex>
+      </Button>
+    </Link>
   )
 }
 
