@@ -30,7 +30,11 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
 
     const onSubmit = async (data: Form) => {
         try {
-            await axios.post('/api/issues', data);
+            if(issue) {
+                await axios.patch(`/api/issues/${issue.id}`, data);
+            } else {
+                await axios.post('/api/issues', data);
+            }
             router.push('/issues');
         } catch (e) {
             setError('An unexpected error occurred. Please try again.');
@@ -65,7 +69,10 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
                     render={({ field }) => <SimpleMDE placeholder='Description' {...field} />}
                 />
                 <ErrorMessage children={errors.description?.message} />
-                <Button disabled={isSubmitting}>Submit {isSubmitting && <Spinner/>}</Button>
+                <Button disabled={isSubmitting}>
+                    {issue ? 'Edit' : 'Submit'}{' '}
+                    {isSubmitting && <Spinner/>}
+                </Button>
             </form>
         </Box>
     )
