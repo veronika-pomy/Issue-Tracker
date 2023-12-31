@@ -1,12 +1,12 @@
 import prisma from '@/prisma/client';
-import { Box, Card, Flex, Heading, Text } from '@radix-ui/themes';
+import { Box, Grid } from '@radix-ui/themes';
 import { notFound } from 'next/navigation';
-import ReactMarkdown from 'react-markdown';
-import StatusBadge from '../../components/StatusBadge';
+import IssueDetails from './IssueDetails';
+import IssueEditBtn from './IssueEditBtn';
 
 const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
 
-    if(isNaN(parseInt(params.id))) notFound();
+    if(isNaN(parseInt(params.id))) notFound(); // if text, not number entered
 
     const issue = await prisma.issue.findUnique({
         where: {
@@ -17,18 +17,15 @@ const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
     if(!issue) notFound();
     
     return (
-        <Box className='space-y-4'>
-            <Heading as='h2'>{issue.title}</Heading>
-            <Flex gap='4'>
-                <Text as='p'>
-                    <StatusBadge status={issue.status} />
-                </Text>
-                <Text as='p'>{issue.createdAt.toDateString()}</Text>
-            </Flex>
-            <Card className='prose'>
-                <ReactMarkdown>{issue.description}</ReactMarkdown>
-            </Card>
-        </Box>
+        <Grid columns={{ initial: "1", md: "2" }} gap="5">
+                <Box className='space-y-4'>
+                    <IssueDetails issue={issue} />
+                </Box>
+                <Box>
+                    <IssueEditBtn issueID={issue.id} /> 
+                </Box>
+                
+        </Grid>
     )
 }
 
