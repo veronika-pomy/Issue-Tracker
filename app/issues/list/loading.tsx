@@ -1,5 +1,6 @@
-import { IssueBar, Skeleton } from '@/app/components';
+import { Skeleton } from '@/app/components';
 import { Box, Table } from '@radix-ui/themes';
+import IssueBar from './IssueBar';
 
 const LoadingIssuesPage = () => {
 

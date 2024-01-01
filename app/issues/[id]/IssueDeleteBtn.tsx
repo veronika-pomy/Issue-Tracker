@@ -1,7 +1,7 @@
 'use client';
 
 import Spinner from '@/app/components/Spinner';
-import { Button, AlertDialog, Flex } from '@radix-ui/themes';
+import { AlertDialog, Button, Flex } from '@radix-ui/themes';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -17,7 +17,7 @@ const IssueDeleteBtn = ({ issueID }: { issueID: number }) => {
         try {
             setDeleting(true);
             await axios.delete(`/api/issues/${issueID}`);
-            router.push('/issues');
+            router.push('/issues/list');
             router.refresh();
         } catch(e) {
             setDeleting(false);

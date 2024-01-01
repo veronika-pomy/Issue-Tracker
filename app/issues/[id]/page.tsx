@@ -1,9 +1,9 @@
 import prisma from '@/prisma/client';
 import { Box, Flex, Grid } from '@radix-ui/themes';
 import { notFound } from 'next/navigation';
+import IssueDeleteBtn from './IssueDeleteBtn';
 import IssueDetails from './IssueDetails';
 import IssueEditBtn from './IssueEditBtn';
-import IssueDeleteBtn from './IssueDeleteBtn';
 // Update status Btn and API
 
 const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
