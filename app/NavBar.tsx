@@ -4,8 +4,12 @@ import classnames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { HiOutlineWrenchScrewdriver } from "react-icons/hi2";
+import { useSession } from 'next-auth/react';
+import { Box } from '@radix-ui/themes'
 
 const NavBar = () => {
+
+    const { status, data: session } = useSession();
 
     const links = [
         { label: 'Dashboard', href:'/' },
@@ -21,19 +25,24 @@ const NavBar = () => {
         </Link>
         <ul className='flex space-x-6'>
             {links.map(link => 
-                <Link
-                    key={link.href}
-                    href={link.href}
-                    className={classnames({   
-                            'text-zinc-600': currentPath !== link.href,
-                            'text-purple-950': currentPath === link.href,
-                            'hover:text-zinc-950 transition-colors': true
-                    })}
-                >
-                    {link.label}
-                </Link>
+                <li key={link.href}>
+                    <Link
+                        href={link.href}
+                        className={classnames({   
+                                'text-zinc-600': currentPath !== link.href,
+                                'text-purple-950': currentPath === link.href,
+                                'hover:text-zinc-950 transition-colors': true
+                        })}
+                    >
+                        {link.label}
+                    </Link>
+                </li>
             )}
         </ul>
+        <Box>
+            {status === 'unauthenticated' && <Link href='/api/auth/signin'>Sign In</Link>}
+            {status === 'authenticated' && <Link href='/api/auth/signout'>Sign Out</Link>}
+        </Box>
     </nav>
   )
 }
