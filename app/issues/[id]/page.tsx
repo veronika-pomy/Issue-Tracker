@@ -6,6 +6,7 @@ import IssueDetails from './IssueDetails';
 import IssueEditBtn from './IssueEditBtn';
 import { getServerSession } from 'next-auth';
 import authOptions from '@/app/api/auth/authOptions';
+import AssignUser from './AssignUser';
 // Update status Btn and API
 
 const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
@@ -29,6 +30,7 @@ const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
                 </Box>
                 {session && <Box mt='4'>
                     <Flex direction={{ md: 'column' }} gap="4" align='center'>
+                        <AssignUser />
                         <IssueEditBtn issueID={issue.id} /> 
                         <IssueDeleteBtn issueID={issue.id} /> 
                     </Flex>
