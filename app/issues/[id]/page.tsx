@@ -31,7 +31,7 @@ const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
                 </Box>
                 {session && <Box mt='4'>
                     <Flex direction={{ md: 'column' }} gap="4" align='stretch' justify='center' wrap='wrap' className='content-center'>
-                        <AssignUser />
+                        <AssignUser issue={issue} />
                         <IssueEditBtn issueID={issue.id} /> 
                         <IssueDeleteBtn issueID={issue.id} /> 
                     </Flex>
