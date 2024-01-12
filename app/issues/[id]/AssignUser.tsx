@@ -1,21 +1,15 @@
 'use client';
 
+import { Skeleton } from '@/app/components';
 import { Issue, User } from '@prisma/client';
 import { Select } from '@radix-ui/themes';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React from 'react';
-import { Skeleton } from '@/app/components';
 import toast, { Toaster } from 'react-hot-toast';
 
 const AssignUser = ( {issue} : { issue: Issue }) => {
 
-    const { data: users, error, isLoading } = useQuery<User[]>({
-        queryKey: ['users'],
-        queryFn: () => axios.get('/api/users').then((res) => res.data),
-        staleTime: 60 * 1000, // refetch after 60 seconds 
-        retry: 3
-    });
+    const { data: users, error, isLoading } = callUserQuery();
 
     if(isLoading) return <Skeleton height='2rem' width='10rem'/>
 
@@ -35,7 +29,7 @@ const AssignUser = ( {issue} : { issue: Issue }) => {
     return (
         <>
             <Select.Root 
-                onValueChange={(userId) => assignToUser(userId)}
+                onValueChange={assignToUser}
                 defaultValue={issue.assignedUserId || ''}
             >
                 <Select.Trigger placeholder='Assign Issue'/>
@@ -62,5 +56,13 @@ const AssignUser = ( {issue} : { issue: Issue }) => {
         </>
     );
 };
+
+// fetching users and caching functionality
+const callUserQuery = () => useQuery<User[]>({
+    queryKey: ['users'],
+    queryFn: () => axios.get('/api/users').then((res) => res.data),
+    staleTime: 720 * 60 * 1000, // refetch after 12 hrs
+    retry: 3
+});
 
 export default AssignUser;
