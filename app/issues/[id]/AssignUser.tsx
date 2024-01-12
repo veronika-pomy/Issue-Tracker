@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react';
 import { Skeleton } from '@/app/components';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AssignUser = ( {issue} : { issue: Issue }) => {
 
@@ -20,26 +21,45 @@ const AssignUser = ( {issue} : { issue: Issue }) => {
 
     if (error) return null; // don't render component
 
-    const assignToUser = (userId: string) => {
-        axios.patch(`/api/issues/${issue.id}`, { assignedUserId: userId || null });
+    const assignToUser = async (userId: string) => {
+        try {
+            await axios.patch(
+                `/api/issues/${issue.id}`, 
+                { assignedUserId: userId || null }
+            );
+        } catch (e) {
+            toast.error('Couldn\'t save changes.')
+        };
     };
 
     return (
-        <Select.Root 
-            onValueChange={(userId) => assignToUser(userId)}
-            defaultValue={issue.assignedUserId || ''}
-        >
-            <Select.Trigger placeholder='Assign Issue'/>
-            <Select.Content>
-                <Select.Group>
-                    <Select.Label>Users</Select.Label>
-                    <Select.Item value=''>Unassigned</Select.Item>
-                    {users?.map((user) => (
-                        <Select.Item key={user.id} value={user.id}>{user.name}</Select.Item>
-                    ))}
-                </Select.Group>
-            </Select.Content>
-        </Select.Root>
+        <>
+            <Select.Root 
+                onValueChange={(userId) => assignToUser(userId)}
+                defaultValue={issue.assignedUserId || ''}
+            >
+                <Select.Trigger placeholder='Assign Issue'/>
+                <Select.Content>
+                    <Select.Group>
+                        <Select.Label>Users</Select.Label>
+                        <Select.Item value=''>Unassigned</Select.Item>
+                        {users?.map((user) => (
+                            <Select.Item key={user.id} value={user.id}>{user.name}</Select.Item>
+                        ))}
+                    </Select.Group>
+                </Select.Content>
+            </Select.Root>
+            <Toaster 
+                toastOptions={{
+                    error: {
+                        iconTheme: {
+                            primary: '#3b0764',
+                            secondary: 'white'
+                        }
+                    }
+                }}
+            />
+        </>
     );
 };
 
