@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
-const AssignUser = ( {issue} : { issue: Issue }) => {
+const AssignUser = ( { issue } : { issue: Issue }) => {
 
     const { data: users, error, isLoading } = callUserQuery();
 
