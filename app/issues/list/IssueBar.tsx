@@ -1,15 +1,17 @@
-import { Box, Button } from '@radix-ui/themes';
+import { Flex, Button } from '@radix-ui/themes';
 import Link from 'next/link';
+import FilterIssueByStatus from './FilterIssueByStatus';
 
 const IssueBar = () => {
   return (
-    <Box className='mb-6'>
+    <Flex mb='6' justify='between'>
+      <FilterIssueByStatus />
       <Button>
         <Link href='/issues/new'>
           Add Issue
         </Link>
       </Button>
-  </Box>
+  </Flex>
   )
 }
 
