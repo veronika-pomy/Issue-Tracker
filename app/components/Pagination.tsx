@@ -29,9 +29,6 @@ const Pagination = ({ itemCount, itemsPerPage, currentPage }: Props) => {
 
     return (
         <Flex align='center' gap='2'>
-            <Text size='2'>
-                Page {currentPage} of {pageCount}
-            </Text>
             <Button
                 color='gray'
                 variant='soft'
@@ -48,6 +45,9 @@ const Pagination = ({ itemCount, itemsPerPage, currentPage }: Props) => {
             >
                 <ChevronLeftIcon />
             </Button>
+            <Text size='2'>
+                Page {currentPage} of {pageCount}
+            </Text>
             <Button
                 color='gray'
                 variant='soft'

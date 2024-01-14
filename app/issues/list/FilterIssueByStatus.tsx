@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Select } from '@radix-ui/themes';
 import { Status } from '@prisma/client';
+import { Select } from '@radix-ui/themes';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const statuses: { label: string, value?: Status }[] = [

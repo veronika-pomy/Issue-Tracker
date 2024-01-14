@@ -4,7 +4,7 @@ import FilterIssueByStatus from './FilterIssueByStatus';
 
 const IssueBar = () => {
   return (
-    <Flex mb='6' justify='between'>
+    <Flex justify='between'>
       <FilterIssueByStatus />
       <Button>
         <Link href='/issues/new'>
