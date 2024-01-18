@@ -1,7 +1,9 @@
+import RecentIssues from "./RecentIssues";
+
 export default function Home() {
   return (
     <div>
-      Dashbaord
+      <RecentIssues />
     </div>
   )
 }
