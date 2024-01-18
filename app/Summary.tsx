@@ -3,12 +3,14 @@ import { Card, Flex, Text } from '@radix-ui/themes';
 import Link from 'next/link';
 
 interface Props {
-    open: number;
-    inProgress: number;
-    closed: number;
+    issues: {
+        open: number;
+        inProgress: number;
+        closed: number;
+    }
 }
 
-const Summary = ({ open, inProgress, closed } : Props) => {
+const Summary = ( { issues: { open, inProgress, closed } } : Props ) => {
 
     const summary: {
         label: string,
@@ -21,10 +23,10 @@ const Summary = ({ open, inProgress, closed } : Props) => {
     ];
 
   return (
-    <Flex gap='4'>
+    <Flex gap='6' className='justify-around'>
         {summary.map(item => (
             <Card key={item.label}>
-                <Flex direction='column' gap='2'>
+                <Flex direction='column' gap='2' >
                     <Link
                         href={`/issues/list?status=${item.status}`}
                         className='text-sm font-medium'
