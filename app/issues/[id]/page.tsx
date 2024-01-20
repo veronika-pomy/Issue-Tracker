@@ -7,10 +7,15 @@ import IssueEditBtn from './IssueEditBtn';
 import { getServerSession } from 'next-auth';
 import authOptions from '@/app/api/auth/authOptions';
 import AssignUser from './AssignUser';
-import { Skeleton } from '@/app/components';
 // Update status Btn and API
 
-const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
+interface Props {
+    params: { 
+        id: string
+    }
+}
+
+const IssueDetailsPage = async ({ params } : Props) => {
 
     const session = await getServerSession(authOptions);
 
@@ -41,3 +46,16 @@ const IssueDetailsPage = async ({ params } : { params: { id: string } }) => {
 }
 
 export default IssueDetailsPage;
+
+export async function generateMetadata ({ params }: Props) {
+    const issue = await prisma.issue.findUnique({
+        where: {
+            id: parseInt(params.id)
+        }
+    });
+
+    return {
+        title: issue?.title,
+        description: `${issue?.title} Details`
+    };
+};

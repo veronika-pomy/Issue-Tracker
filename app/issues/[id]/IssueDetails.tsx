@@ -19,3 +19,8 @@ const IssueDetails = ({ issue }: { issue: Issue }) => {
 }
 
 export default IssueDetails;
+
+export const metadata: Metadata = {
+  title: 'Issue Tracker - Issue List',
+  description: 'View project issues table'
+};

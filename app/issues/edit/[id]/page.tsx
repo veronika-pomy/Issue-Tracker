@@ -8,7 +8,13 @@ const IssueForm = dynamic(
     loading: () => <IssueFormLoadingSkeleton /> }
 );
 
-const EditIssuePage = async ({ params }: {params: { id: string }}) => {
+interface Props {
+  params: { 
+      id: string
+  }
+}
+
+const EditIssuePage = async ({ params }: Props) => {
 
     if(isNaN(parseInt(params.id))) notFound(); // if text, not number entered
     
@@ -28,3 +34,16 @@ const EditIssuePage = async ({ params }: {params: { id: string }}) => {
 }
 
 export default EditIssuePage;
+
+export async function generateMetadata ({ params }: Props) {
+  const issue = await prisma.issue.findUnique({
+      where: {
+          id: parseInt(params.id)
+      }
+  });
+
+  return {
+      title: `${issue?.title} - Edit`,
+      description: `Edit ${issue?.title} Issue`
+  };
+};
