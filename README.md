@@ -30,7 +30,7 @@ The Issue Tracker is designed to streamline tracking and managing issues. This a
 
 Explore the deployed version of the Issue Tracker [here.](#)  <!-- Replace with the actual link when available -->
 
-<!-- Add video when available -->
+https://github.com/veronika-pomy/Issue-Tracker/assets/111567114/e23f5d72-d17d-4ca9-91b0-04c6d0ce3829
 
 ## Features
 
