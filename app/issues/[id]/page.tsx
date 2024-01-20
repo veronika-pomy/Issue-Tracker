@@ -7,6 +7,7 @@ import IssueEditBtn from './IssueEditBtn';
 import { getServerSession } from 'next-auth';
 import authOptions from '@/app/api/auth/authOptions';
 import AssignUser from './AssignUser';
+import { cache } from 'react';
 // Update status Btn and API
 
 interface Props {
@@ -15,17 +16,22 @@ interface Props {
     }
 }
 
+// cache data for mult use
+const fetchIssue = cache((issueId: number) =>
+    // returns promise
+    prisma.issue.findUnique({
+        where: {
+            id: issueId
+        }
+}));
+
 const IssueDetailsPage = async ({ params } : Props) => {
 
     const session = await getServerSession(authOptions);
 
     if(isNaN(parseInt(params.id))) notFound(); // if text, not number entered
 
-    const issue = await prisma.issue.findUnique({
-        where: {
-            id: parseInt(params.id)
-        }
-    });
+    const issue = await fetchIssue(parseInt(params.id));
 
     if(!issue) notFound();
     
@@ -48,11 +54,8 @@ const IssueDetailsPage = async ({ params } : Props) => {
 export default IssueDetailsPage;
 
 export async function generateMetadata ({ params }: Props) {
-    const issue = await prisma.issue.findUnique({
-        where: {
-            id: parseInt(params.id)
-        }
-    });
+
+    const issue = await fetchIssue(parseInt(params.id));
 
     return {
         title: issue?.title,
