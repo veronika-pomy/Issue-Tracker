@@ -40,7 +40,7 @@ const Summary = ( { issues: { open, inProgress, closed } } : Props ) => {
             </Card>
         ))}
     </Flex>
-  )
-}
+  );
+};
 
 export default Summary;
