@@ -5,7 +5,7 @@ import RecentIssues from "./RecentIssues";
 import Summary from "./Summary";
 import { Metadata } from 'next';
 
-export default async function Home() {
+const Home = async () => {
 
 const openIssues = await prisma.issue.count({ where: { status: 'OPEN' }});
 const inProgressIssues = await prisma.issue.count({ where: { status: 'IN_PROGRESS' }});
@@ -31,6 +31,11 @@ const Issues: {
     </Grid>
   )
 }
+
+// opt-out of static server rendering for home
+export const dynamic = 'force-dynamic';
+
+export default Home;
 
 export const metadata: Metadata = {
   title: 'Issue Tracker - Dashboard',
