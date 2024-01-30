@@ -1,15 +1,15 @@
 import { Link as CustomLink, StatusBadge } from '@/app/components';
 import { Issue, Status } from '@prisma/client';
-import { CaretUpIcon } from "@radix-ui/react-icons";
+import { CaretUpIcon, CaretDownIcon, Cross2Icon } from "@radix-ui/react-icons";
 import { Box, Table } from '@radix-ui/themes';
 import NextLink from 'next/link';
 
 export interface IssueQuery {
     status: Status; 
     orderBy: keyof Issue;
-    page: string 
+    page: string;
+    sort: string; 
 }
-
 
 interface Props {
     searchParams: IssueQuery,
@@ -25,13 +25,16 @@ const IssueTable = ({ searchParams, issues } : Props) => {
               <Table.ColumnHeaderCell key={column.value} className={column.className}>
                 <NextLink
                   href={{
-                    query: { ...searchParams, orderBy: column.value }
-                  }}
+                    query: { ...searchParams, orderBy: column.value, sort: searchParams.sort === 'asc' ? 'desc' : 'asc'
+                  }}}
                 >
                 {column.label}
                 </NextLink>
-                {column.value === searchParams.orderBy && 
-                  <CaretUpIcon className='inline' width={18} height={18}/>}
+                {column.value === searchParams.orderBy && searchParams.sort === 'asc'&&
+                    <CaretUpIcon className='inline' width={18} height={18}/>
+                  }
+                {column.value === searchParams.orderBy && searchParams.sort === 'desc'&&
+                  <CaretDownIcon className='inline' width={18} height={18}/>}
               </Table.ColumnHeaderCell>
             ))}
           </Table.Row>

@@ -5,8 +5,8 @@ import { Issue, User } from '@prisma/client';
 import { Select } from '@radix-ui/themes';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AssignUser = ( { issue } : { issue: Issue }) => {
 
@@ -14,7 +14,7 @@ const AssignUser = ( { issue } : { issue: Issue }) => {
 
     const { data: users, error, isLoading } = useCallUserQuery();
 
-    if(isLoading) return <Skeleton height='2rem' width='10rem'/>
+    if(isLoading) return <Skeleton height='2rem' width='10rem' />
 
     if (error) return null; // don't render component
 
@@ -24,7 +24,7 @@ const AssignUser = ( { issue } : { issue: Issue }) => {
                 `/api/issues/${issue.id}`, 
                 { assignedUserId: userId || null }
             );
-            router.refresh(); // force refresh issues route to immidiately see the new/updated issue
+            router.refresh(); // force refresh 
         } catch (e) {
             toast.error('Couldn\'t save changes.')
         };

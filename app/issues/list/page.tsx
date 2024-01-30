@@ -24,8 +24,8 @@ const IssuesPage = async ({ searchParams } : Props) => {
   const orberByOptions = columnTitles;
 
   const orderBy = orberByOptions.includes(searchParams.orderBy) ? 
-    { [ searchParams.orderBy ]: 'asc' } : 
-    undefined;
+    { [ searchParams.orderBy ]: searchParams.sort } : 
+undefined;
 
   const page = parseInt(searchParams.page) || 1;
 
@@ -36,7 +36,7 @@ const IssuesPage = async ({ searchParams } : Props) => {
   const issues = await prisma.issue.findMany({
     where,
     orderBy,
-    skip: (page - 1)*pageSize,
+    skip: (page - 1) * pageSize,
     take: pageSize,
   });
 
