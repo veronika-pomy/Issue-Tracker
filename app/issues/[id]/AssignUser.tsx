@@ -6,8 +6,11 @@ import { Select } from '@radix-ui/themes';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const AssignUser = ( { issue } : { issue: Issue }) => {
+
+    const router = useRouter();
 
     const { data: users, error, isLoading } = useCallUserQuery();
 
@@ -21,6 +24,7 @@ const AssignUser = ( { issue } : { issue: Issue }) => {
                 `/api/issues/${issue.id}`, 
                 { assignedUserId: userId || null }
             );
+            router.refresh(); // force refresh issues route to immidiately see the new/updated issue
         } catch (e) {
             toast.error('Couldn\'t save changes.')
         };
