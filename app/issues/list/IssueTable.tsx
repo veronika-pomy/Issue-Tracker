@@ -1,6 +1,6 @@
 import { Link as CustomLink, StatusBadge } from '@/app/components';
 import { Issue, Status } from '@prisma/client';
-import { CaretUpIcon, CaretDownIcon, Cross2Icon } from "@radix-ui/react-icons";
+import { CaretUpIcon, CaretDownIcon } from "@radix-ui/react-icons";
 import { Box, Table } from '@radix-ui/themes';
 import NextLink from 'next/link';
 
