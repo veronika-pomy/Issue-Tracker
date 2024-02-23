@@ -8,7 +8,7 @@ import { getServerSession } from 'next-auth';
 import authOptions from '@/app/api/auth/authOptions';
 import AssignUser from './AssignUser';
 import { cache } from 'react';
-// Update status Btn and API
+import UpdateStatus from './UpdateStatus';
 
 interface Props {
     params: { 
@@ -23,7 +23,8 @@ const fetchIssue = cache((issueId: number) =>
         where: {
             id: issueId
         }
-}));
+    }
+));
 
 const IssueDetailsPage = async ({ params } : Props) => {
 
@@ -43,6 +44,7 @@ const IssueDetailsPage = async ({ params } : Props) => {
                 {session && <Box mt='4'>
                     <Flex direction={{ md: 'column' }} gap="4" align='stretch' justify='center' wrap='wrap' className='content-center'>
                         <AssignUser issue={issue} />
+                        <UpdateStatus issueID={issue.id} issueStatus={issue.status}/>
                         <IssueEditBtn issueID={issue.id} /> 
                         <IssueDeleteBtn issueID={issue.id} /> 
                     </Flex>

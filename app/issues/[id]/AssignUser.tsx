@@ -50,6 +50,7 @@ const AssignUser = ( { issue } : { issue: Issue }) => {
             <Toaster 
                 toastOptions={{
                     error: {
+                        icon: '❗',
                         iconTheme: {
                             primary: '#3b0764',
                             secondary: 'white'

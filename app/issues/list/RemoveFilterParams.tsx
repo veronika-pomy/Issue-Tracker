@@ -1,19 +1,14 @@
 'use client';
 
-import React from 'react';
-import { RiFilterOffLine } from "react-icons/ri";
-import NextLink from 'next/link';
 import { Button } from '@radix-ui/themes';
 import { useRouter, useSearchParams } from 'next/navigation';
-
+import { RiFilterOffLine } from "react-icons/ri";
 
 const RemoveFilterParams = () => {
 
   const router = useRouter();
 
   const searchParams = useSearchParams();
-
-  // console.log(searchParams);
 
   return (
     <Button 

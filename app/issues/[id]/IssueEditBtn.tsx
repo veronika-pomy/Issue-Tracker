@@ -7,7 +7,7 @@ const IssueEditBtn = ({ issueID }: { issueID: number }) => {
     <Link
     href={`/issues/edit/${issueID}`}
     >
-      <Button className='lg:w-40'>
+      <Button className='lg:w-40 lg:ml-2'>
         <Flex  align='center' gap='1'>
           <HiPencil />
           <Text>Edit</Text>

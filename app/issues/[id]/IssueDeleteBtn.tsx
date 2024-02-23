@@ -31,7 +31,7 @@ const IssueDeleteBtn = ({ issueID }: { issueID: number }) => {
             <AlertDialog.Trigger>
             <Button 
                 color='red' 
-                className='lg:w-40' 
+                className='lg:w-40 lg:ml-2' 
                 disabled={deleting}
             >
                 Delete
