@@ -59,7 +59,8 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
                     defaultValue={issue?.description}
                     name='description'
                     control={control}
-                    render={({ field }) => <SimpleMDE placeholder='Description' {...field} />}
+                    render={({ field }) => <SimpleMDE placeholder='Description' {...field}/>}
+                    
                 />
                 <ErrorMessage>{errors.description?.message}</ErrorMessage>
                 <Button disabled={isSubmitting}>

@@ -67,6 +67,7 @@ The design of the Issue Tracker is crafted using the following tools:
 - [PostCSS](https://postcss.org/): Transforming CSS with JavaScript plugins for optimized styling.
 - [React Icons](https://react-icons.github.io/react-icons/): Utilizing a comprehensive library of icons for enhanced visual appeal.
 - [Canva](https://www.canva.com/): Leveraging Canva for professional and eye-catching design elements.
+- [unDraw](https://undraw.co/): Creating customizable design assets.
 
 ## Get Started
 

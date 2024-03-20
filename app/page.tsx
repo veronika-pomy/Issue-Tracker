@@ -1,9 +1,9 @@
 import prisma from '@/prisma/client';
 import { Flex, Grid } from "@radix-ui/themes";
+import { Metadata } from 'next';
 import Chart from "./Chart";
 import RecentIssues from "./RecentIssues";
 import Summary from "./Summary";
-import { Metadata } from 'next';
 
 const Home = async () => {
 
@@ -22,12 +22,13 @@ const Issues: {
 };
 
   return (
+    // <Landing />
     <Grid columns={{ initial: '1', md:'2' }} gap='6'>
       <Flex direction='column' gap='6'>
         <Summary issues={Issues} />
         <Chart issues={Issues} />
-      </Flex>
-      <RecentIssues />
+      </Flex> 
+      <RecentIssues /> 
     </Grid>
   )
 }

@@ -22,4 +22,7 @@ body {
   .nav-link {
     @apply text-zinc-600 hover:text-zinc-800 transition-colors;
   }
+  .nav-link-dark {
+    @apply text-zinc-400 hover:text-zinc-500 transition-colors;
+  }
 }
