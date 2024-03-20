@@ -30,7 +30,9 @@ export default function RootLayout({
         <ThemeContext>
           <QueryClientProvider>
             <AuthProvider>
-                <AppContainer children={children}/>
+                <AppContainer>
+                  {children}
+                </AppContainer>
             </AuthProvider>
           </QueryClientProvider>
         </ThemeContext>
