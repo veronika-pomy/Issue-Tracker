@@ -21,7 +21,7 @@ const AppContainer = ({
                 appearance={darkTheme ? 'dark' : 'light'}
         >
             <NavBar />
-            <main className='p-5'>
+            <main className='p-5 h-screen'>
                 <Container>
                     {children}
                 </Container>
