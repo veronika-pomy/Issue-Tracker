@@ -15,9 +15,9 @@ const Landing = () => {
     const { status } = useSession();
 
   return (
-    <Box className=' flex flex-col md:flex-row absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-        <Box className='flex justify-center md:items-center m-16'>
-            <Button variant="outline" size='4'>
+    <Box className='flex flex-col md:flex-row justify-between mt-28 gap-40 w-10/12'>
+        <Box className='flex justify-center md:items-center ml-20 md:ml-0'>
+            <Button variant="outline" size='4' className='w-60 h-16'>
                 <Link
                     href={status === 'authenticated' ? '/dashboard' : '/api/auth/signin' }
                 >
@@ -28,9 +28,8 @@ const Landing = () => {
         <Image
             src={darkTheme ? darkThemeLanding : lightThemeLanding}
             alt=''
-            width={640}
-            height={370}
-            className='shrink'
+            width={940}
+            className='shrink ml-16 sm:ml-20 md:ml-0'
         />
     </Box>
   )

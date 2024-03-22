@@ -22,7 +22,7 @@ const Issues: {
 };
 
   return (
-    <Grid columns={{ initial: '1', md:'2' }} gap='6'>
+    <Grid columns={{ initial: '1', md:'2' }} gap='6' className='m-6'>
       <Flex direction='column' gap='6'>
         <Summary issues={Issues} />
         <Chart issues={Issues} />

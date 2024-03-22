@@ -2,7 +2,7 @@
 
 import React from 'react'
 import NavBar from './NavBar';
-import { Container, Theme } from '@radix-ui/themes';
+import { Box, Container, Theme } from '@radix-ui/themes';
 import { useThemeContext } from './context/useThemeContext';
 
 const AppContainer = ({
@@ -14,20 +14,20 @@ const AppContainer = ({
     const { darkTheme } = useThemeContext();
 
   return (
-    <>
+    <Box>
         <Theme 
                 accentColor={darkTheme ? 'cyan' : 'violet'}
                 grayColor='slate'
                 appearance={darkTheme ? 'dark' : 'light'}
         >
             <NavBar />
-            <main className='p-5 h-screen'>
+            <main>
                 <Container>
                     {children}
                 </Container>
             </main>
         </Theme>
-    </>
+    </Box>
   )
 }
 
