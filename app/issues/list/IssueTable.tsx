@@ -91,14 +91,14 @@ const IssueTable = ({ searchParams, issues } : Props) => {
                 {issue.createdAt.toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })}
               </Table.Cell>
               <Table.Cell className='hidden md:table-cell'>
-                {issue.assignedToUser &&  <Avatar 
+                {/* {issue.assignedToUser &&  <Avatar 
                             src={issue.assignedToUser.image}
                             fallback='?' 
                             size='1' 
                             radius='full' 
                             className='cursor-pointer mr-2'
                             referrerPolicy='no-referrer'
-                />}
+                />} */}
                 {issue.assignedToUser === null ? 'Unassigned' : issue.assignedToUser.name}
               </Table.Cell>
             </Table.Row>
