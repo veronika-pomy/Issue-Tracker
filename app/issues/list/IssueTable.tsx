@@ -68,7 +68,7 @@ const IssueTable = ({ searchParams, issues } : Props) => {
                   <CaretDownIcon className='inline' width={18} height={18}/>}
               </Table.ColumnHeaderCell>
             ))}
-            <Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className='hidden md:table-cell'>
                 Assigned User
             </Table.ColumnHeaderCell>
           </Table.Row>
