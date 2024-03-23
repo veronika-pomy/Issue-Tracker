@@ -15,6 +15,7 @@ const LoadingIssuesPage = () => {
                 <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell className='hidden md:table-cell'>Status</Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell className='hidden md:table-cell'>Date Created</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell className='hidden md:table-cell'>Assigned User</Table.ColumnHeaderCell>
             </Table.Row>
             </Table.Header>
             <Table.Body>
@@ -32,8 +33,10 @@ const LoadingIssuesPage = () => {
                 <Table.Cell className='hidden md:table-cell'>
                     <Skeleton />
                 </Table.Cell>
+                <Table.Cell className='hidden md:table-cell'>
+                    <Skeleton />
+                </Table.Cell>
                 </Table.Row>
-
             ))}
             </Table.Body>
         </Table.Root>

@@ -2,7 +2,6 @@ import prisma from "@/prisma/client";
 import { Status } from '@prisma/client';
 import { Flex } from '@radix-ui/themes';
 import IssueBar from './IssueBar';
-
 import Pagination from '@/app/components/Pagination';
 import IssueTable, { IssueQuery, columnTitles } from "./IssueTable";
 import { Metadata } from "next";
@@ -38,6 +37,14 @@ undefined;
     orderBy,
     skip: (page - 1) * pageSize,
     take: pageSize,
+    include: {
+      assignedToUser: {
+        select: {
+          name: true,
+          image: true
+        }
+      }
+    }
   });
 
   const issueCount = await prisma.issue.count({ where });
