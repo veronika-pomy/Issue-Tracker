@@ -28,7 +28,22 @@ interface TableIssue {
 
 interface Props {
     searchParams: IssueQuery,
-    issues: TableIssue[]
+    issues: TableIssue[] | (
+      { 
+        assignedToUser: { 
+          name: string | null; 
+          image: string | null; } | null; 
+      } 
+      & 
+      { 
+        id: number; 
+        title: string; 
+        description: string; 
+        status: Status; 
+        createdAt: Date; 
+        updatedAt: Date; 
+        assignedUserId: string | null; 
+      })[]
 }
   
 const IssueTable = ({ searchParams, issues } : Props) => {
