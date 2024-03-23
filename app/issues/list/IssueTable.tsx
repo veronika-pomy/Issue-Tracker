@@ -28,7 +28,7 @@ interface TableIssue {
 
 interface Props {
     searchParams: IssueQuery,
-    issues: TableIssue[] | any
+    issues: TableIssue[]
 }
   
 const IssueTable = ({ searchParams, issues } : Props) => {
