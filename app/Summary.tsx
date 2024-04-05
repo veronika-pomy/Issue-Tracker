@@ -41,6 +41,6 @@ const Summary = ( { issues: { open, inProgress, closed } } : Props ) => {
         ))}
     </Flex>
   );
-};
+}:
 
 export default Summary;
