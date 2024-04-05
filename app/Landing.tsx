@@ -32,7 +32,7 @@ const Landing = () => {
             className='shrink ml-16 sm:ml-20 md:ml-0'
         />
     </Box>
-  )
-}
+  );
+};
 
 export default Landing;
