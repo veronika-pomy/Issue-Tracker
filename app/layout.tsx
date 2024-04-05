@@ -38,5 +38,5 @@ export default function RootLayout({
         </ThemeContext>
       </body>
     </html>
-  )
+  );
 };
