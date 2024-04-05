@@ -29,7 +29,7 @@ const Chart = ({ issues: { open, inProgress, closed } } : Props) => {
             </BarChart>
         </ResponsiveContainer>
     </Card>
-  )
-}
+  );
+};
 
 export default Chart;
