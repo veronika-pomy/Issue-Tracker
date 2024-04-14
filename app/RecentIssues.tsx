@@ -45,7 +45,7 @@ const RecentIssues = async () => {
             </Table.Body>
         </Table.Root>
     </Card>
-  )
-}
+  );
+};
 
 export default RecentIssues;
