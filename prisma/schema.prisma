@@ -3,7 +3,7 @@
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["relationJoins"]
+  previewFeatures = ["driverAdapters", "relationJoins"] // relationJoins - for planet scale
 }
 
 datasource db {
