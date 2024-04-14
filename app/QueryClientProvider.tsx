@@ -13,7 +13,7 @@ const QueryClientProvider = ({ children }: PropsWithChildren ) => {
     >
         {children}
     </QueryProvider>
-  )
-}
+  );
+};
 
 export default QueryClientProvider;
