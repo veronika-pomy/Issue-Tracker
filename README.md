@@ -2,7 +2,6 @@
 
 ![Static Badge](https://img.shields.io/badge/Next-JS-%23000?style=for-the-badge&logo=Tailwind)
 ![Static Badge](https://img.shields.io/badge/MySQL-00758f?style=for-the-badge&logo=MySQL&logoColor=%20%23f29111&labelColor=%23dadada)
-
 ![Static Badge](https://img.shields.io/badge/prisma-5a67d8?style=for-the-badge&logo=Prisma&logoColor=5a67d8&labelColor=dadada)
 ![Static Badge](https://img.shields.io/badge/Axios-5a67d8?style=for-the-badge&logo=Axios&logoColor=5A29E4&labelColor=dadada)
 ![Static Badge](https://img.shields.io/badge/Next-Auth-a553b3?style=for-the-badge&logo=Next%20Auth&logoColor=5468ff&labelColor=dadada)
