@@ -1,8 +1,6 @@
 # Issue Tracker
 
 ![Static Badge](https://img.shields.io/badge/Next-JS-%23000?style=for-the-badge&logo=Tailwind)
-![Static Badge](https://img.shields.io/badge/React-JS-%2361DAFB?style=for-the-badge&logo=React&logoColor=%2361DAFB)
-![Static Badge](https://img.shields.io/badge/Node-JS-%23339933?style=for-the-badge&logo=Node.js&logoColor=%23339933)
 ![Static Badge](https://img.shields.io/badge/MySQL-00758f?style=for-the-badge&logo=MySQL&logoColor=%20%23f29111&labelColor=%23dadada)
 
 ![Static Badge](https://img.shields.io/badge/prisma-5a67d8?style=for-the-badge&logo=Prisma&logoColor=5a67d8&labelColor=dadada)
@@ -44,8 +42,6 @@ https://github.com/veronika-pomy/Issue-Tracker/assets/111567114/909d2265-8cfc-4c
 The Issue Tracker application leverages modern technologies to ensure a seamless user experience:
 
 - [Next.js](https://nextjs.org/): Empowering the front-end with a dynamic and responsive user interface.
-- [React](https://react.dev/): Building a reactive and interactive user experience.
-- [Node.js](https://nodejs.org/en): Creating a robust back-end for efficient data handling.
 - [MySQL](https://www.mysql.com/): Storing and retrieving data efficiently.
 - [Prisma](https://www.prisma.io/): Seamless data access and management.
 - [Zod](https://zod.dev/): Ensuring strict and type-safe validation of data.
